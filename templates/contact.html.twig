@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>contact</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    </head>
+    <body>
+        <h1>contact</h1>
+        <form  action="" method="post" novalidate>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" value="{{ formData.email}}" required>
+                    {% if errors.email is defined %}
+                        <div class="errors">
+                            {{ errors.email }}
+                        </div>
+                    {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Sujet</label>
+                <input class="form-control" type="text" name="subject" value="{{ formData.subject}}" required>
+                    {% if errors.subject is defined %}
+                        <div class="errors">
+                            {{ errors.subject }}
+                        </div>
+                    {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Message</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ecrire votre message" name="text" required></textarea>
+                    {% if errors.text is defined %}
+                        <div class="errors">
+                            {{ errors.text }}
+                        </div>
+                    {% endif %}
+            </div>
+            <div>
+                <button type="submit">valider</button>
+            </div>
+
+        </form>
+    </body>
+</html>
